@@ -53,10 +53,21 @@ families at higher density — that translation is documented at the top of
 |---|---|
 | Membership prices, student rate, PT add-on | [`src/data/packages.js`](src/data/packages.js) |
 | Phone, WhatsApp, email, Instagram | [`src/data/content.js`](src/data/content.js) |
-| Photos | [`src/data/images.js`](src/data/images.js) → files in `public/photos/` |
+| Photos (stock, not the real gym) | `public/photos/` — drop in replacements using the same filenames |
 | Coach names, specialties, bios | [`src/data/trainers.js`](src/data/trainers.js) — see the TODO block |
 
 Member, lead, equipment, and payment records are all fabricated seed data.
+
+Images are WebP. After adding any PNG/JPG to `public/photos/`, normalise with:
+
+```bash
+node scripts/to-webp.mjs --clean
+```
+
+## Security
+
+The `/admin` login accepts any credentials — it is a demo prop, not authentication. Read
+[SECURITY.md](SECURITY.md) before deploying this anywhere public.
 
 ## Scope boundaries
 

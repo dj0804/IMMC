@@ -3,6 +3,11 @@ dist/
 dist-ssr/
 *.local
 
+# Local agent / editor tooling config — machine-specific, not part of the app
+.claude/
+.cursor/
+.aider*
+
 .env
 .env.*
 !.env.example

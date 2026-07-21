@@ -1,12 +1,15 @@
-// ─────────────────────────────────────────────────────────────────────────────
+// ---------------------------------------------------------------------------
 // IMAGE MANIFEST
-// ─────────────────────────────────────────────────────────────────────────────
-// Files live in `public/photos/`. See the filename table in chat — save each
-// supplied image under the exact name below and it appears automatically.
+// ---------------------------------------------------------------------------
+// Files live in `public/photos/`, all WebP. To swap a photo, drop a replacement
+// in with the same filename — nothing here needs editing.
 //
 // Every consumer paints the `fallback` gradient underneath, so a missing or
 // slow file degrades to an on-brand dark panel rather than a broken image.
-// ─────────────────────────────────────────────────────────────────────────────
+//
+// To re-normalise the folder after adding PNG/JPG files:
+//     node scripts/to-webp.mjs --clean
+// ---------------------------------------------------------------------------
 
 const P = '/photos/'
 
@@ -19,14 +22,14 @@ const GRAD = {
 
 export const images = {
   logo: {
-    src: `${P}logo.png`,
+    src: `${P}logo.webp`,
     fallback: GRAD.gold,
     alt: 'IMMC Fit Club crown and physique logo in gold',
   },
 
   // Wide squat shot — strongest single image, carries the first impression.
   hero: {
-    src: `${P}hero-squat.jpg`,
+    src: `${P}hero-squat.webp`,
     fallback: GRAD.steel,
     alt: 'Athlete mid-squat under a loaded barbell on a dark training floor',
   },
@@ -34,45 +37,45 @@ export const images = {
   // Portrait crop of the dumbbell press. Reused as zone-free-weight further
   // down the page, where the repeat reads as continuity rather than reuse.
   philosophy: {
-    src: `${P}zone-free-weight.jpg`,
+    src: `${P}zone-free-weight.webp`,
     fallback: GRAD.steel,
     alt: 'Athlete pressing dumbbells beside a full rack of weights',
   },
 
   // Renders at 20% opacity — effectively a texture, so the repeat is invisible.
   ctaBand: {
-    src: `${P}hero-squat.jpg`,
+    src: `${P}hero-squat.webp`,
     fallback: GRAD.gold,
     alt: 'Training floor at IMMC',
   },
 
   zoneCardio: {
-    src: `${P}zone-cardio.jpg`,
+    src: `${P}zone-cardio.webp`,
     fallback: GRAD.cyan,
     alt: 'Members running on a row of treadmills under Cardio Deck signage',
   },
   zoneFreeWeight: {
-    src: `${P}zone-free-weight.jpg`,
+    src: `${P}zone-free-weight.webp`,
     fallback: GRAD.gold,
     alt: 'Dumbbell rack and bench press station',
   },
   zoneMachines: {
-    src: `${P}zone-machines.jpg`,
+    src: `${P}zone-machines.webp`,
     fallback: GRAD.steel,
     alt: 'Row of selectorised strength machines',
   },
   zoneFunctional: {
-    src: `${P}zone-functional.jpg`,
+    src: `${P}zone-functional.webp`,
     fallback: GRAD.red,
     alt: 'Athlete working battle ropes on turf beside kettlebells',
   },
 
   // Generic keys so renaming a coach never requires touching this file —
   // trainers.js maps each coach to a slot.
-  coach1: { src: `${P}coach-1.jpg`, fallback: GRAD.gold, alt: 'IMMC coach portrait' },
-  coach2: { src: `${P}coach-2.jpg`, fallback: GRAD.cyan, alt: 'IMMC coach portrait' },
-  coach3: { src: `${P}coach-3.jpg`, fallback: GRAD.steel, alt: 'IMMC coach portrait' },
-  coach4: { src: `${P}coach-4.jpg`, fallback: GRAD.red, alt: 'IMMC coach portrait' },
+  coach1: { src: `${P}coach-1.webp`, fallback: GRAD.gold, alt: 'IMMC coach portrait' },
+  coach2: { src: `${P}coach-2.webp`, fallback: GRAD.cyan, alt: 'IMMC coach portrait' },
+  coach3: { src: `${P}coach-3.webp`, fallback: GRAD.steel, alt: 'IMMC coach portrait' },
+  coach4: { src: `${P}coach-4.webp`, fallback: GRAD.red, alt: 'IMMC coach portrait' },
 }
 
 export const getImage = (key) => images[key] ?? { src: '', fallback: GRAD.steel, alt: '' }
